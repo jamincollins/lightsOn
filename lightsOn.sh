@@ -84,8 +84,7 @@ checkDelayProgs()
 checkFullscreen()
 {
     # loop through every display looking for a fullscreen window
-    for display in $displays
-    do
+    for display in $displays; do
         #get id of active window and clean output
         activ_win_id=`DISPLAY=:0.${display} xprop -root _NET_ACTIVE_WINDOW`
         #activ_win_id=${activ_win_id#*# } #gives error if xprop returns extra ", 0x0" (happens on some distros)
@@ -232,8 +231,7 @@ if [[ $1 = *[^0-9]* ]]; then
 fi
 
 
-while true
-do
+while true; do
     checkDelayProgs
     checkFullscreen
     sleep $delay
