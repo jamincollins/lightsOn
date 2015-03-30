@@ -60,6 +60,7 @@ elif pgrep -x kscreensaver > /dev/null; then
 else
     screensaver=None
     echo "No screensaver detected"
+    exit 1
 fi
 
 checkDelayProgs()
