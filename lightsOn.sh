@@ -49,11 +49,7 @@ delay_progs=() # For example ('ardour2' 'gmpc')
 
 
 # enumerate all the attached screens
-displays=""
-while read id
-do
-    displays="$displays $id"
-done < <(xvinfo | sed -n 's/^screen #\([0-9]\+\)$/\1/p')
+displays=$(xvinfo | awk -F'#' '/^screen/ {print $2}' | xargs)
 
 
 # Detect screensaver been used (xscreensaver, kscreensaver or none)
